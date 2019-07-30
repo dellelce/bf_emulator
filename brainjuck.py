@@ -33,8 +33,8 @@ def brainfuck_emulator(code, input):
         "<": "ptr -= 1",
         "+": "memory[ptr] = (memory[ptr] + 1) % 256",
         "-": "memory[ptr] = (memory[ptr] - 1) % 256",
-        "[": "i = js[i - 1] if memoty[ptr] == 0 else i",
-        "]": "i = js[i - 1] if memoty[ptr] != 0 else i",
+        "[": "i = js[i - 1] if memory[ptr] == 0 else i",
+        "]": "i = js[i - 1] if memory[ptr] != 0 else i",
     }
 
     ptr, i = 0, 0
