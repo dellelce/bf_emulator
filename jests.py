@@ -43,13 +43,13 @@ def test_all():
     assert_equal(brainfuck.brainfuck_emulator(",+.", "\xff"), "\x00")
     assert_equal(brainfuck.brainfuck_emulator(",-.,+.,-.,-.,-.,-.,-.,-.,+.,-.,-.,-.", 'Idmmp!Xpqme"'), "Hello World!")
     assert_equal(brainfuck.brainfuck_emulator(",-.,+.,-..+++.,-.,-.,-.,+.,-.,-.,-.", 'Idm!Xpqme"'), "Hello World!")
+    assert_equal(brainfuck.brainfuck_emulator(",<,<,<,.>.>.>.", "ABCD"), "DCBA")
+    assert_equal(brainfuck.brainfuck_emulator(",[.[-],]", "namfybcy1rfm\x00"), "namfybcy1rfm")
+    assert_equal(brainfuck.brainfuck_emulator(",+[-.,+]", "f948p9jhezvg\\xff"), "f948p9jhezvg")
     assert_equal(
         brainfuck.brainfuck_emulator(",-.>,+.,-.<>.>+++.,-.,-.,-.,+.,-.,-.,-.", 'Idm!Xpqme"'),
-        "Hell\x03 World!",
+        "Hell\\x03 World!",
     )
-    assert_equal(brainfuck.brainfuck_emulator(",<,<,<,.>.>.>.", "ABCD"), "DCBA")
-    assert_equal(brainfuck.brainfuck_emulator(",+[-.,+]", "f948p9jhezvg\xff"), "f948p9jhezvg")
-    assert_equal(brainfuck.brainfuck_emulator(",[.[-],]", "namfybcy1rfm\x00"), "namfybcy1rfm")
     assert_equal(
         brainfuck.brainfuck_emulator("+[-[<<[+[--->]-[<<<]]]>>>-]>-.---.>..>.<<<<-.<+.>>>>>.>.<<.<-.", " "),
         "hello world",

@@ -17,7 +17,7 @@ def jump_stack(code):
     return jumps
 
 
-def brainfuck_emulator(code, input):
+def brainfuck_emulator(code, input, debug=False):
     code = list(code)
     input = list(input)
 
@@ -31,8 +31,8 @@ def brainfuck_emulator(code, input):
         ".": "output.append(chr(memory[ptr]))",
         ">": "ptr += 1",
         "<": "ptr -= 1",
-        "+": "memory[ptr] = (memory[ptr] + 1) % 256",
-        "-": "memory[ptr] = (memory[ptr] - 1) % 256",
+        "+": "memory[ptr] = (memory[ptr] + 1) % 255",
+        "-": "memory[ptr] = (memory[ptr] - 1) % 255",
         "[": "i = js[i - 1] if memory[ptr] == 0 else i",
         "]": "i = js[i - 1] if memory[ptr] != 0 else i",
     }
@@ -46,6 +46,8 @@ def brainfuck_emulator(code, input):
 
         if act is not None:
             exec(act)
+            if debug:
+                print("{} {} {}".format(cmd, act, "".join(output)))
 
         i += 1
 
